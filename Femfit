@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FemFit - Salud y Bienestar Femenino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff5f7;
+        }
+
+        .card-gradient {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .phase-active {
+            border: 2px solid #ec4899;
+            background-color: #fdf2f8;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navegación -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
+                    <i class="fas fa-venus text-white"></i>
+                </div>
+                <span class="text-2xl font-bold text-pink-600">FemFit</span>
+            </div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#dashboard" class="hover:text-pink-500 transition">Inicio</a>
+                <a href="#tracker" class="hover:text-pink-500 transition">Ciclo</a>
+                <a href="#workouts" class="hover:text-pink-500 transition">Rutinas</a>
+            </div>
+            <button class="bg-pink-500 text-white px-5 py-2 rounded-full hover:bg-pink-600 transition">Perfil</button>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        
+        <!-- Dashboard Hero -->
+        <section id="dashboard" class="mb-12">
+            <div class="card-gradient rounded-3xl p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">¡Hola de nuevo!</h1>
+                    <p class="text-lg opacity-90">Hoy estás en tu <span class="font-bold">Fase Folicular</span>. Es un buen momento para probar algo nuevo.</p>
+                    <div class="mt-6 flex space-x-4">
+                        <div class="bg-white/20 backdrop-blur-md p-4 rounded-2xl">
+                            <p class="text-sm">Próximo Periodo</p>
+                            <p class="text-2xl font-bold">12 Días</p>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-md p-4 rounded-2xl">
+                            <p class="text-sm">Día del Ciclo</p>
+                            <p class="text-2xl font-bold">Día 9</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-48 h-48 bg-white/10 rounded-full flex items-center justify-center border-4 border-white/30">
+                    <div class="text-center">
+                        <p class="text-xs uppercase tracking-widest">Energía</p>
+                        <p class="text-4xl font-bold">Alta</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tracker y Registro -->
+        <section id="tracker" class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div class="lg:col-span-2 bg-white rounded-3xl p-8 shadow-sm border border-pink-100">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="far fa-calendar-alt mr-3 text-pink-500"></i> Calendario de Ciclo
+                </h2>
+                <div class="grid grid-cols-7 gap-2 mb-4 text-center text-xs font-bold text-gray-400 uppercase">
+                    <span>Lun</span><span>Mar</span><span>Mie</span><span>Jue</span><span>Vie</span><span>Sab</span><span>Dom</span>
+                </div>
+                <!-- Grid de calendario simplificado -->
+                <div class="grid grid-cols-7 gap-2">
+                    <!-- Ejemplo de días -->
+                    <script>
+                        const days = Array.from({length: 31}, (_, i) => i + 1);
+                        document.write(days.map(d => `
+                            <div class="h-12 flex items-center justify-center rounded-xl cursor-pointer hover:bg-pink-50 transition 
+                                ${d >= 1 && d <= 5 ? 'bg-pink-100 text-pink-600 font-bold border border-pink-200' : 'bg-gray-50'}">
+                                ${d}
+                            </div>
+                        `).join(''));
+                    </script>
+                </div>
+                <div class="mt-6 flex items-center space-x-4 text-sm">
+                    <div class="flex items-center"><span class="w-3 h-3 bg-pink-100 border border-pink-200 rounded-full mr-2"></span> Periodo</div>
+                    <div class="flex items-center"><span class="w-3 h-3 bg-blue-100 border border-blue-200 rounded-full mr-2"></span> Ovulación</div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-pink-100">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">Registrar Síntomas</h2>
+                <div class="space-y-4">
+                    <label class="block">
+                        <span class="text-gray-700 text-sm mb-1 block">Estado de Ánimo</span>
+                        <div class="flex justify-between text-2xl bg-gray-50 p-3 rounded-2xl">
+                            <span class="cursor-pointer">😊</span>
+                            <span class="cursor-pointer">😌</span>
+                            <span class="cursor-pointer">😔</span>
+                            <span class="cursor-pointer">😠</span>
+                            <span class="cursor-pointer">😴</span>
+                        </div>
+                    </label>
+                    <label class="block">
+                        <span class="text-gray-700 text-sm mb-1 block">Intensidad de Flujo</span>
+                        <select class="w-full bg-gray-50 border-none rounded-2xl p-3 focus:ring-2 focus:ring-pink-400">
+                            <option>Ninguno</option>
+                            <option>Ligero</option>
+                            <option>Moderado</option>
+                            <option>Abundante</option>
+                        </select>
+                    </label>
+                    <button class="w-full py-4 bg-pink-500 text-white rounded-2xl font-bold shadow-lg shadow-pink-200 hover:bg-pink-600 transition">
+                        Guardar Registro
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rutinas según Fase -->
+        <section id="workouts">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-2xl font-bold">Rutinas Sugeridas</h2>
+                <div class="flex space-x-2">
+                    <span class="px-3 py-1 bg-pink-500 text-white text-xs rounded-full">Recomendado para hoy</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Fase Menstrual -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="h-40 bg-pink-100 flex items-center justify-center">
+                        <i class="fas fa-spa text-4xl text-pink-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Yoga Restaurativo</h3>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">20 min</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-4">Ideal para aliviar cólicos y relajar el sistema nervioso durante tu periodo.</p>
+                        <button class="text-pink-500 font-bold text-sm flex items-center hover:underline">
+                            Empezar <i class="fas fa-play ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fase Folicular -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border-2 border-pink-400 relative">
+                    <div class="absolute top-4 right-4 bg-pink-500 text-white text-[10px] font-bold px-2 py-1 rounded">TU FASE</div>
+                    <div class="h-40 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-running text-4xl text-blue-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Entrenamiento HIIT</h3>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">35 min</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-4">Aprovecha el pico de estrógenos para quemar energía y ganar fuerza.</p>
+                        <button class="bg-pink-500 text-white w-full py-2 rounded-xl font-bold text-sm hover:bg-pink-600 transition">
+                            Ver Rutina Completa
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fase Lútea -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="h-40 bg-yellow-100 flex items-center justify-center">
+                        <i class="fas fa-walking text-4xl text-yellow-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Pilates Suave</h3>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">30 min</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-4">Mantén el tono muscular sin sobrecargar tu cuerpo antes de la regla.</p>
+                        <button class="text-pink-500 font-bold text-sm flex items-center hover:underline">
+                            Empezar <i class="fas fa-play ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 mt-20 py-10">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <i class="fab fa-instagram text-2xl text-pink-300 cursor-pointer hover:text-pink-500"></i>
+                <i class="fab fa-twitter text-2xl text-pink-300 cursor-pointer hover:text-pink-500"></i>
+                <i class="fab fa-tiktok text-2xl text-pink-300 cursor-pointer hover:text-pink-500"></i>
+            </div>
+            <p class="text-gray-400 text-sm">© 2024 FemFit. Tu salud es tu poder.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica simple para interactividad de ejemplo
+        document.querySelectorAll('#tracker .cursor-pointer').forEach(day => {
+            day.addEventListener('click', function() {
+                // Aquí se podría abrir un modal para registro detallado
+                this.classList.toggle('ring-2');
+                this.classList.toggle('ring-pink-300');
+            });
+        });
+    </script>
+</body>
+</html>
